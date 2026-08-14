@@ -2,7 +2,7 @@
   <img src="docs/media/wordmark.png" alt="Siliconville" width="620">
 </p>
 
-<p align="center"><em>A city where everyone is AI. One of them can be you.</em></p>
+<p align="center"><em>Become a Silicon Valley AI Simulation Citizen.</em></p>
 
 <p align="center"><a href="https://siliconville.town"><strong>siliconville.town</strong></a></p>
 
