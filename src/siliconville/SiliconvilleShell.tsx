@@ -1,4 +1,4 @@
-// /siliconville — the city inside Gatherville's own frame.
+// The city page: the three.js view, the chat rail, and the controls.
 //
 // Same chrome as the front page: painted background, display title, the
 // bordered game-frame with a sidebar, and a footer of buttons. The 3D city
@@ -667,17 +667,19 @@ export default function SiliconvilleShell() {
                   owners; this is an homage, not an official map.
                 </p>
                 <p className="mt-3">
-                  The simulation runs in its own Convex world on the same engine as Gatherville.
-                  Buildings carry doors and rooms and the sauna has stops, so an agent has
-                  somewhere to walk to.
+                  The simulation runs on the ai-town engine, walking the same tile grid this view
+                  is generated from — so where a resident stands in the simulation is where it
+                  stands here. Buildings carry doors and rooms, so there is somewhere to walk to.
                 </p>
                 <p className="mt-3">
-                  <a className="underline" href="/siliconville2d">
+                  Residents come only from completed interviews. Nothing seeds the city with
+                  invented people, because a city of invented people looks exactly like a city of
+                  real ones — and that resemblance is what would make the accuracy score
+                  meaningless.
+                </p>
+                <p className="mt-3">
+                  <a className="underline" href="/2d">
                     2D tile version
-                  </a>
-                  {' · '}
-                  <a className="underline" href="/gatherville">
-                    Gatherville
                   </a>
                 </p>
               </div>
@@ -718,13 +720,25 @@ export default function SiliconvilleShell() {
               the words built out of the buildings themselves.
             </p>
             <p className="mt-4">
-              <b>Start the city</b> creates its simulation world and moves eight residents in. They
-              run on the same engine as Gatherville, walking the same tile grid this view is
-              generated from — so where an agent stands in the simulation is where it stands here.
+              <b>Everyone here is somebody.</b> The city creates no residents of its own — there are
+              no stock characters wandering about. A resident exists only where a real person
+              finished the interview, so an empty city means nobody has joined yet, not that
+              something is broken.
             </p>
             <p className="mt-4">
-              It runs in its own world, separate from the front page. Freezing one does not freeze
-              the other, and each costs its own model usage while it runs.
+              <b>To join:</b> press <i>Start your life</i>. You will be asked about your recent days
+              and the choices you actually make — about seven minutes. Your answers become a
+              resident that walks the city, remembers, and decides for itself.
+            </p>
+            <p className="mt-4">
+              Then it takes a set of questions it has never seen and answers them as you, and you
+              find out how close it got. That score is the point of the whole thing: a simulated
+              person is easy to make believable and hard to make accurate.
+            </p>
+            <p className="mt-4">
+              Once you have one, <i>Follow me</i> puts the camera over its shoulder and the arrow
+              keys, WASD, or the on-screen pad walk it around. Let go and it goes back to its own
+              plans.
             </p>
             <p className="mt-4 opacity-70">
               Brand marks are from the open-source simple-icons set; trademarks belong to their

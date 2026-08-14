@@ -49,7 +49,7 @@ const SURFACE_COLOR = [
 
 /**
  * `chrome: false` renders the canvas alone, filling whatever box it is given,
- * so the city can sit inside the Gatherville frame instead of taking over the
+ * so the city can sit inside the page frame instead of taking over the
  * page. The standalone header and footer only make sense on a full-page view.
  */
 /** One resident, as the simulation reports them. Positions are in TILES. */
