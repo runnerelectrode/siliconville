@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "allowImportingTsExtensions": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "postcss.config.js"],
+  // convex/ has its OWN tsconfig with moduleResolution "Bundler", which is what
+  // Convex components require — they ship subpath exports like
+  // "@convex-dev/workflow/convex.config.js" that "node" resolution cannot see.
+  // Checking those files from here too meant checking them under the wrong
+  // resolution and failing on imports that are correct. `npx convex deploy`
+  // type-checks convex/ against its own config, so nothing goes unchecked.
+  "exclude": ["node_modules", "convex"]
+}

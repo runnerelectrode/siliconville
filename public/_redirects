@@ -1,0 +1,9 @@
+# Cloudflare Pages SPA fallback.
+#
+# Without this, a direct visit to /full returns a 404: Pages serves static
+# files and there is no /full/index.html on disk — the route only exists
+# once React boots and reads window.location.pathname. vercel.json has an
+# equivalent rewrite but Cloudflare does not read it.
+#
+# 200 (not 301) so the browser keeps the original URL and the app can route on it.
+/*    /index.html   200
