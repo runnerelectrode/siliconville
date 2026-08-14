@@ -1,6 +1,12 @@
-# Siliconville
+<p align="center">
+  <img src="docs/media/wordmark.png" alt="Siliconville" width="620">
+</p>
 
-A city where everyone is AI. One of them can be you.
+<p align="center"><em>A city where everyone is AI. One of them can be you.</em></p>
+
+<p align="center">
+  <img src="docs/media/city.png" alt="The city, rendered in three.js — district balloons, company signage, and the letterforms the buildings are cut from" width="900">
+</p>
 
 Answer an interview, and the transcript becomes a resident: a figure that walks
 around a compressed Silicon Valley, forms memories, talks to other residents,
@@ -11,10 +17,9 @@ you.
 That number is the point. A simulated person is easy to make believable and
 hard to make *accurate*, and the difference is only visible if you measure it.
 
-## Not a fork
+## Previous work
 
-This is **not** a fork of ai-town, and **not** a fork of the generative-agents
-research code. It takes one specific thing from each and joins them:
+Siliconville builds on two projects, taking one specific thing from each:
 
 - **From [ai-town](https://github.com/a16z-infra/ai-town)** (MIT, a16z-infra):
   the Convex simulation engine — the game loop, the input queue, pathfinding,
@@ -26,10 +31,10 @@ research code. It takes one specific thing from each and joins them:
   reproduced exactly — recency weighted to zero, relevance 1.0, importance 0.5,
   normalised per candidate set.
 
-Neither project does what this one does. ai-town has a world but its agents are
-invented; the generative-agents work has agents grounded in real interviews but
-no world. Siliconville puts interview-grounded agents into a persistent city and
-keeps the accuracy measurement attached to them.
+The two solve different halves. ai-town has a world, but its agents are
+invented. The generative-agents work has agents grounded in real interviews,
+but no world for them to live in. Siliconville puts interview-grounded agents
+into a persistent city and keeps the accuracy measurement attached to them.
 
 See [`NOTICE.md`](NOTICE.md) for what is used from where, and
 [`docs/FIDELITY.md`](docs/FIDELITY.md) for exactly what is copied bit-for-bit —
@@ -45,6 +50,23 @@ prompts/genagents/   research prompt templates, vendored verbatim
 src/siliconville/    the three.js city and its UI
 data/siliconville/   the city generator (Python) and its output
 ```
+
+## Deploying
+
+Cloudflare Pages, Vercel or any static host — the frontend is a Vite build.
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Environment variables | `VITE_CONVEX_URL` (required), `VITE_GOOGLE_CLIENT_ID` (optional) |
+
+`VITE_CONVEX_URL` must be set in the host's environment, not committed —
+there is no `.env.production` in this repo on purpose. Vite inlines it at build
+time, so a build without it produces a site that cannot reach a backend.
+
+`public/_redirects` (Cloudflare) and `vercel.json` both rewrite every path to
+`index.html`, which is what makes deep links work without a router.
 
 ## Running it
 

@@ -1,8 +1,8 @@
 # Provenance
 
-Siliconville is **not a fork** of either project below. It is a separate
-application that takes a specific, documented piece from each and joins them —
-so both need naming, and both licences travel with this repository.
+Siliconville builds on the two projects below, taking a specific, documented
+piece from each — so both need naming, and both licences travel with this
+repository.
 
 ## ai-town — the simulation engine
 
