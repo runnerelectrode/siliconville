@@ -16,6 +16,7 @@ import { useAction, useMutation, useQuery } from 'convex/react';
 import Siliconville3D, { type Agent } from './Siliconville3D.tsx';
 import { useServerGame } from '../hooks/serverGame.ts';
 import Button from '../components/buttons/Button.tsx';
+import { GathervilleRoutes } from '../gatherville/Shell.tsx';
 import BackendBoundary from './BackendBoundary.tsx';
 import { GoogleSignIn } from '../auth/google.tsx';
 import MusicButton from '../components/buttons/MusicButton.tsx';
@@ -599,19 +600,19 @@ export default function SiliconvilleShell() {
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between font-body siliconville-background">
-      {/* The page promises a digital identity of yourself; this is the only
-          thing on it that delivers one, so it goes top-left where the front
-          page keeps it rather than buried in the footer with the sim controls. */}
-      <a
-        href="/gatherville#interview"
-        className="button text-white shadow-solid text-xl pointer-events-auto absolute top-4 left-4 z-10"
-      >
-        <div className="inline-block bg-clay-700">
-          <span>
-            <div className="inline-flex h-full items-center gap-4">Start your life</div>
-          </span>
-        </div>
-      </a>
+      {/* The interview, scorecard and god mode, as overlays on the city.
+          
+          They used to live behind /gatherville, a separate page in the private
+          project this came from. Linking there from here meant leaving the city
+          to join it, and the back button — which only clears the hash — landed
+          on whatever page you had come from rather than here. Mounted at the
+          city instead: the hash decides what is on top, and clearing it returns
+          to the city because the city never went away.
+          
+          GathervilleRoutes also renders the entry point itself (Start your
+          life, or Scorecard and God mode once you have a twin), so there is no
+          separate link to keep in step with it. */}
+      <GathervilleRoutes />
 
       <div className="absolute top-4 right-4 z-10">
         <GoogleSignIn />
