@@ -4,6 +4,8 @@
 
 <p align="center"><em>A city where everyone is AI. One of them can be you.</em></p>
 
+<p align="center"><a href="https://siliconville.town"><strong>siliconville.town</strong></a></p>
+
 <p align="center">
   <img src="docs/media/city.png" alt="The city, rendered in three.js — district balloons, company signage, and the letterforms the buildings are cut from" width="900">
 </p>
